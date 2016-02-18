@@ -59,7 +59,7 @@
 	</record>
 	
 <!-- Creo El Menu -->	
-		<menuitem id="main_menu_cein" name="CEIN"  /> 	
+		<menuitem id="main_menu_cein" name="CEIN_AM"  /> 	
 		<menuitem id="cein_submenu_configuracion" name="Configuracion" parent="main_menu_cein"  />
 	<menuitem id="menu_tipo_denuncia" name="Tipo de Denuncia" parent="cein_submenu_configuracion" action="tipo_denuncia_list_action" />
 

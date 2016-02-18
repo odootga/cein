@@ -1,3 +1,7 @@
+import visita
+import turno
+import procedimiento
+import tipo_procedimiento
 import tipo_denuncia
 import nacionalidad
 import escolaridad

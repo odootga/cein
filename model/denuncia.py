@@ -22,12 +22,9 @@ class Denuncia(models.Model):
 class Implicados(models.Model):
 	_name = "cein.implicado"
 	name_id= fields.Many2one('cein.denuncia','Many2one obligado',help="obligado por one2many, no necesario aparezca en vista")
-	nombre= fields.Many2one('cein.persona','Nombre')
-	relacion= fields.Many2one('cein.tipo_implicados','Tipo de Implicacion con los hechos')
+	nombre = fields.Many2one('cein.persona','Relacion Persona')
+	relacion= fields.Many2one('cein.tipo_implicados','Implicación en la denuncia')
 	
-	
-	
-
 
 class Hechos(models.Model):
 	_name = "cein.hechos"	

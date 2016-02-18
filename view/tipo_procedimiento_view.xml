@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!-- Vista formulario -->
+	<record model="ir.ui.view" id="tipo_procedimiento_form_view">
+		<field name="name">tipo_procedimiento.form</field>
+		<field name="model">cein.tipo_procedimiento</field>
+		<field name="arch" type="xml">
+			<form string="tipo_procedimiento Form">
+				<sheet>					
+					<group col="2">						
+						<field name="name" placeholder="Procedimiento " />		
+						<field name="unidad_responsable" placeholder="Unidad Responsable " />
+						
+					</group>					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+<!-- Vista de arbol para el objeto -->
+	<record model="ir.ui.view" id="tipo_procedimiento_tree_view">
+		<field name="name">tipo_procedimiento.tree</field>
+		<field name="model">cein.tipo_procedimiento</field>
+		<field name="arch" type="xml">
+				<tree string="Status Tree">
+						<field name="name" placeholder="Procedimiento " />		
+						<field name="unidad_responsable" placeholder="Unidad Responsable " />
+				</tree>
+		</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="tipo_procedimiento_list_action">
+          <field name="name">Configuración de tipo_procedimientos</field>
+          <field name="res_model">cein.tipo_procedimiento</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">Crea el primer elemento de este catálogo</p>
+		</field>
+        </record>
+
+<!-- Creo El Menu -->	
+		<menuitem id="menu_tipo_procedimiento" name="Procedimientos" parent="cein_submenu_configuracion" action="tipo_procedimiento_list_action" />
+	</data>
+</openerp>

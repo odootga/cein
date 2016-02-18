@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!-- Vista formulario para el objeto phase -->
+	<record model="ir.ui.view" id="cein.procedimiento_form_view">
+		<field name="name">procedimiento.form</field>
+		<field name="model">cein.procedimiento</field>
+		<field name="arch" type="xml">
+			<form string="procedimiento Form">
+				<sheet>					
+					<group col="2">						
+						<field name="name" placeholder="Procedimiento" />								
+						<field name="denuncia_id"/>				
+						<field name="implicado_id"/>	
+						<field name="state"/>	
+						<field name="solicitud" placeholder="Breve Descripción de Solicitud" />
+					</group>
+					<group colspan="4" >
+							<group cols="2">	
+								<field name="creador" />	
+								<field name="creacion_date" />							
+							</group>
+							<group cols="2">	
+								<field name="modificador" />	
+								<field name="modificacion_date" />
+							</group>
+					</group>					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+<!-- Vista de arbol para el objeto phase -->
+	<record model="ir.ui.view" id="cein.procedimiento_tree_view">
+		<field name="name">procedimiento.tree</field>
+		<field name="model">cein.procedimiento</field>
+		<field name="arch" type="xml">
+				<tree string="Status Tree">
+							<field name="name"/>								
+						<field name="state"  />				
+						<field name="denuncia_id"/>	
+				</tree>
+		</field>
+	</record>	
+	
+	
+<!-- Esta es la accion que maneja todas las vistass-->
+	<record model="ir.actions.act_window" id="procedimiento_list_action">
+		<field name="name">Solicitud de Procedimiento Fiscal</field>
+		<field name="res_model">cein.procedimiento</field>
+		<field name="view_type">form</field> <!-- creo que esta es la vista que se muestra por defecto -->	
+		<field name="view_mode">tree,form</field> <!-- aqui se colocan todos los tipos de vista que va a tener este objeto -->	
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">Crea el primer elemento de este cátalogo</p>
+		</field>
+	</record>
+	
+<!-- Creo El Menu -->	
+			
+	<menuitem id="menu_procedimiento" name="Procedimiento" parent="cein_submenu_denuncias" action="procedimiento_list_action" />
+
+	</data>
+</openerp>

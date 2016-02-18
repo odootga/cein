@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<openerp>
+	<data>
+		<!--
+		<record model="ir.ui.view" id="visita_search">
+			<field name="name">visita.tree</field>
+			<field name="model">cein.visita</field>
+			<field name="arch" type="xml">
+				<search string="Busquedas">
+		<field name="tipo_visita_id"  filter_domain="[('tipo_visita_id','ilike', self)]" string="Busqueda por tipo de visita" /> 
+	<field name="state"  filter_domain="[('state','ilike', self)]" string="Busqueda por estado de visita" /> 
+
+							<separator/>
+							<filter  string="Busqueda por estado"  domain="[('state','=', 'generada')]"  />
+							<separator/>
+						<group expand="0" string="Agrupado por:" >
+							<filter  string="Busqueda por tipo de visita"  domain="[]" context="{'group_by':'tipo_visita_id' }" />
+							<filter  string="Busqueda por estado de visita"  domain="[]" context="{'group_by':'state' }" />
+						</group>
+				</search>
+
+		</field>
+		</record>
+-->
+		
+
+<!-- Vista formulario -->
+	<record model="ir.ui.view" id="visita_form_view">
+		<field name="name">visita.form</field>
+		<field name="model">cein.visita</field>
+		<field name="arch" type="xml">
+			<form string="visita Form">
+				
+				<sheet>					
+					<group colspan="4">
+						<group cols="2">						
+							<field name="name" placeholder="Codigo auto generado" />		
+							<field name="fecha_visita"  />
+							<field name="hora_visita"  />
+							<field name="tipo_visita"  />
+						</group>
+						<group cols="2">
+							<field name="visitado" placeholder="Tipo de visita " />
+							<field name="duracion" placeholder="Fecha de visita " />
+						</group>																	
+					</group>					
+
+					<notebook>
+					  <page string="Registros">	
+					  <group colspan="2" col="1">
+            				<field name="partipantes_id"/>
+          			  </group>		
+					  </page>					 
+					</notebook>	
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+<!-- Vista de arbol para el objeto -->
+	<record model="ir.ui.view" id="visita_tree_view">
+		<field name="name">visita.tree</field>
+		<field name="model">cein.visita</field>
+		<field name="arch" type="xml">
+				<tree string="Status Tree">
+							<field name="name" />			
+							<field name="fecha_visita" />	
+							<field name="hora_visita" />	
+							<field name="tipo_visita" />	
+				</tree>
+		</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="visita_list_action">
+          <field name="name">visita</field>
+          <field name="res_model">cein.visita</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">Crea el primer elemento de este catálogo</p>
+		</field>
+        </record>
+
+<!-- Creo El Menu -->			
+		<menuitem id="cein_submenu_visitas" name="Registro de Ingreso" parent="main_menu_cein_new"  />
+		<menuitem id="menu_visita" name="Visitas" parent="cein_submenu_visitas" action="visita_list_action" />
+
+	<record model="ir.ui.view" id="cein.participantes_tree">
+      <field name="name">cein.participantes.tree</field>
+      <field name="model">cein.participantes</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Registros">
+          <field name="nombre"/>          
+        </tree>
+      </field>
+    </record>
+
+     <record model="ir.ui.view" id="cein.participantes_form_view">
+		<field name="name">cein.participantes.form</field>
+		<field name="model">cein.participantes</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Registros">
+				<sheet>					
+					<group col="2">						
+						<field name="nombre"/>            			         
+					</group>					
+				</sheet>
+			</form>
+		</field>
+	</record>
+    
+	</data>
+</openerp>

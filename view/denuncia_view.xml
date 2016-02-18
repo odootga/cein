@@ -90,7 +90,7 @@
         </record>
 
 <!-- Creo El Menu -->			
-		<menuitem id="cein_submenu_denuncias" name="Ingreso de Denuncias" parent="main_menu_cein"  />
+		<menuitem id="cein_submenu_denuncias" name="Ingreso de Denuncias" parent="main_menu_cein_new"  />
 		<menuitem id="menu_denuncia" name="Denuncias" parent="cein_submenu_denuncias" action="denuncia_list_action" />
 
 	<record model="ir.ui.view" id="cein.implicado_tree">

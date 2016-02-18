@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<openerp>
+	<data>
+<!-- Vista formulario -->
+	<record model="ir.ui.view" id="turno_form_view">
+		<field name="name">turno.form</field>
+		<field name="model">cein.turno</field>
+		<field name="arch" type="xml">
+			<form string="turno Form">
+				<sheet>					
+					<group col="2">						
+						<field name="name" placeholder="Frecuencia " />		
+						<field name="hora_inicio" placeholder="Hora de Inicio " />				
+						<field name="hora_final" placeholder="Hora Final " />
+					</group>					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+<!-- Vista de arbol para el objeto -->
+	<record model="ir.ui.view" id="turno_tree_view">
+		<field name="name">turno.tree</field>
+		<field name="model">cein.turno</field>
+		<field name="arch" type="xml">
+				<tree string="Status Tree">
+						<field name="name" placeholder="Frecuencia " />		
+						<field name="hora_inicio" placeholder="Hora de Inicio " />				
+						<field name="hora_final" placeholder="Hora Final " />
+				</tree>
+		</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="turno_list_action">
+          <field name="name">Configuración de Turnos</field>
+          <field name="res_model">cein.turno</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">Crea el primer elemento de este catálogo</p>
+		</field>
+        </record>
+
+<!-- Creo El Menu -->	
+		<menuitem id="menu_turno" name="Turnos" parent="cein_submenu_configuracion" action="turno_list_action" />
+	</data>
+</openerp>

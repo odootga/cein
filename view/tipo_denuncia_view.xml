@@ -54,13 +54,13 @@
 		<field name="view_type">form</field> <!-- creo que esta es la vista que se muestra por defecto -->	
 		<field name="view_mode">tree,form</field> <!-- aqui se colocan todos los tipos de vista que va a tener este objeto -->	
 		<field name="help" type="html">
-			<p class="oe_view_nocontent_create">Crea el primer elemento de este c·talogo</p>
+			<p class="oe_view_nocontent_create">Crea el primer elemento de este c√°talogo</p>
 		</field>
 	</record>
 	
 <!-- Creo El Menu -->	
 		<menuitem id="main_menu_cein_new" name="CEIN_AM"  /> 	
-		<menuitem id="cein_submenu_configuracion" name="Configuracion" parent="main_menu_cein"  />
+		<menuitem id="cein_submenu_configuracion" name="Configuracion" parent="main_menu_cein_new"  />
 	<menuitem id="menu_tipo_denuncia" name="Tipo de Denuncia" parent="cein_submenu_configuracion" action="tipo_denuncia_list_action" />
 
 	</data>

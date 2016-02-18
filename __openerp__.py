@@ -2,7 +2,7 @@
 {
 	'name' : 'Centro Integrado de Desarrollo Institucional-CEIN',
 	'depends' : ['base'],
-	'category': 'Project_Management_Module',
+	'category': 'Project Management Module',
 	'description' :'''Desarrollo Exclusivo''',
 	'author': 'Marco Rios, Allan Maradiaga',
 	'data': [

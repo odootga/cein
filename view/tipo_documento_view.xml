@@ -9,8 +9,7 @@
 			<form string="tipo_documento Form">
 				<sheet>					
 					<group col="2">						
-						<field name="name" placeholder="Nombre " />		
-						<field name="displayname" placeholder="Nombre " />														
+						<field name="name" placeholder="Nombre " />																
 						<field name="activo" />											
 					</group>
 					<notebook>
@@ -30,14 +29,14 @@
 		<field name="arch" type="xml">
 				<tree string="Status Tree">
 							
-							<field name="displayname" />	
+							<field name="name" />	
 							<field name="descripcion" />
 				</tree>
 		</field>
 	</record>	
 	
 	<record model="ir.actions.act_window" id="tipo_documento_list_action">
-          <field name="name">Tipo de Documento</field>
+          <field name="name">Tipo de Documento de Identificación</field>
           <field name="res_model">cein.tipo_documento</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>

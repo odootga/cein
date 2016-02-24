@@ -9,8 +9,7 @@
 			<form string="persona Form">
 				<sheet>					
 					<group col="2">						
-						<field name="name" placeholder="Nombre " />		
-						<field name="displayname" placeholder="Nombre " />								
+						<field name="name" placeholder="Nombre " />						
 						<field name="nacionalidad_id" placeholder="Nacionalidad" />											
 						<field name="escolaridad_id"  />											
 						<field name="estadocivil_id"  />											
@@ -37,8 +36,8 @@
 		<field name="model">cein.persona</field>
 		<field name="arch" type="xml">
 				<tree string="Status Tree">
-							<field name="nacionalidad_id" />			
-							<field name="displayname" />	
+							<field name="name" />
+							<field name="nacionalidad_id" />											
 							<field name="descripcion" />
 							<field name="escolaridad_id"  />											
 							<field name="estadocivil_id"  />											
@@ -51,7 +50,7 @@
 	</record>	
 	
 	<record model="ir.actions.act_window" id="persona_list_action">
-          <field name="name">persona</field>
+          <field name="name">Persona</field>
           <field name="res_model">cein.persona</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>

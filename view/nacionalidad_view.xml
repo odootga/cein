@@ -9,8 +9,7 @@
 			<form string="nacionalidad Form">
 				<sheet>					
 					<group col="2">						
-						<field name="name" placeholder="Nombre " />		
-						<field name="displayname" placeholder="Nombre " />								
+						<field name="name" placeholder="Nombre " />								
 						<field name="codlegado" placeholder="Codigo legado" />											
 						<field name="activo" />											
 					</group>
@@ -31,14 +30,14 @@
 		<field name="arch" type="xml">
 				<tree string="Status Tree">
 							<field name="codlegado" />			
-							<field name="displayname" />	
+							<field name="name" />	
 							<field name="descripcion" />
 				</tree>
 		</field>
 	</record>	
 	
 	<record model="ir.actions.act_window" id="nacionalidad_list_action">
-          <field name="name">nacionalidad</field>
+          <field name="name">Nacionalidad</field>
           <field name="res_model">cein.nacionalidad</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>

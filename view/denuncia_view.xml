@@ -33,31 +33,43 @@
 					<field name="state" widget="statusbar" nolabel="1"/>
 				</header>
 				<sheet>					
-					<group colspan="4">
+					<group colspan="4">						
 						<group cols="2">						
 							<field name="name" placeholder="Codigo Oficial " />		
-							<field name="code_temporal" placeholder="Codigo Temporal " />
+							<field name="code_temporal" placeholder="Codigo Temporal " />							
 						</group>
 						<group cols="2">
 							<field name="tipo_denuncia_id" placeholder="Tipo de Denuncia " />
 							<field name="fecha_denuncia" placeholder="Fecha de Denuncia " />						
 							<field name="activo" />	
-						</group>																	
+						</group>					
 					</group>					
 
-					<notebook>
-					  <page string="Implicados">	
-					  <group colspan="2" col="1">
-            				<field name="relacion_id"/>
-          			  </group>		
-					  </page>
-					  <page string="Hechos de la Denuncia">	
-					  <group colspan="2" col="1">
-            				<field name="relatoshechos_id"/>
-          			  </group>		
-					  </page>
-					</notebook>	
-
+						<notebook>
+						  <page string="Implicados">	
+						  <group colspan="2" col="1">
+	            				<field name="relacion_id"/>
+	          			  </group>		
+						  </page>
+						  <page string="Hechos de la Denuncia">	
+						  <group colspan="2" col="1">
+	            				<field name="relatoshechos_id"/>
+	          			  </group>		
+						  </page>
+						  <page string="Procedimientos Requeridos" >	
+								<field name="procedimiento_ids" nolabel="1" >
+									<tree string="XXX" >
+										<field name="denuncia_id" nolabel="1"/>									
+										<field name="name" nolabel="1"/>
+										<field name="implicado_id" nolabel="1" />	
+										<field name="state" nolabel="1" />
+									</tree>
+								</field>
+						</page>
+						</notebook>	
+					<group colspan="2">						
+						<field name="computed_resumen_hechos" />	
+					</group>
 				</sheet>
 			</form>
 		</field>
@@ -129,7 +141,7 @@
       <field name="type">tree</field>
       <field name="arch" type="xml">
         <tree string="Hechos">          
-          <field name="fecha"/>          
+          <field name="fechahora"/>          
           <field name="municipio_id"/>                
         </tree>
       </field>
@@ -144,7 +156,7 @@
 			<form string="Relato de Hechos, Datos Geográficos, Fecha y Hora del Suceso">
 				<sheet>	
 					<group col="2">						
-						<field name="fecha"/>            			         
+						<field name="fechahora"/>            			         
 					</group>
 					<notebook>
 					  <page string="Datos Geográficos del Lugar de los Hechos">	

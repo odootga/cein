@@ -6,7 +6,7 @@ class EstadoCivil(osv.Model):
 	_name = "cein.estadocivil"
 	_columns = {
 		'name': fields.char(string="Nombre",	 size=256, required=True,help="Nombre sin acentos opcionalmente para optimizar busquedas"),
-		'displayname': fields.char(string="Estado Civil",	 size=256, required=True,help="Nombre con acentos a mostrar"),		
+		'displayname': fields.char(string="Nombre a mostrar",	 size=256, required=True,help="Nombre con acentos a mostrar"),		
 		'activo': fields.boolean("Activado"),
 		'descripcion': fields.text("Description", required=False, help="Descripcion"),
 	}

@@ -6,8 +6,8 @@ class Persona(osv.Model):
 	_name = "cein.persona"
 	_rac_name='name'
 	_columns = {
-		'name': fields.char(string="Apellidos y Nombres",	 size=256, required=True,help="Nombre sin acentos opcionalmente para optimizar busquedas"),
-		'displayname': fields.char(string="Apellidos y Nombres",	 size=256, required=True,help="Nombre con acentos a mostrar"),
+		'name': fields.char(string="Nombres y apellidos",	 size=256, required=True,help="Nombre sin acentos opcionalmente para optimizar busquedas"),
+		'displayname': fields.char(string="Nombre a mostrar",	 size=256, required=False,help="Nombre con acentos a mostrar"),
 		'nacionalidad_id': fields.many2one('cein.nacionalidad','Nacionalidad'),
 		'escolaridad_id': fields.many2one('cein.escolaridad','escolaridad'),
 		'estadocivil_id': fields.many2one('cein.estadocivil','estadocivil'),

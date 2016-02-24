@@ -31,7 +31,7 @@
 	</record>	
 	
 	<record model="ir.actions.act_window" id="tipo_procedimiento_list_action">
-          <field name="name">Configuración de tipo_procedimientos</field>
+          <field name="name">Configuración de tipo de procedimientos</field>
           <field name="res_model">cein.tipo_procedimiento</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>
@@ -41,6 +41,6 @@
         </record>
 
 <!-- Creo El Menu -->	
-		<menuitem id="menu_tipo_procedimiento" name="Procedimientos" parent="cein_submenu_configuracion" action="tipo_procedimiento_list_action" />
+		<menuitem id="menu_tipo_procedimiento" name="Tipo de Procedimientos" parent="cein_submenu_configuracion" action="tipo_procedimiento_list_action" />
 	</data>
 </openerp>

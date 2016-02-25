@@ -1,26 +1,31 @@
 #-*- coding: utf-8 -*-
+from datetime import date, datetime, timedelta
 
-from openerp.osv import fields, osv
+import time
 
-class Persona(osv.Model):
+from openerp import fields, models, api
+
+
+class Persona(models.Model):
 	_name = "cein.persona"
-	_rac_name='name'
-	_columns = {
-		'name': fields.char(string="Nombres y apellidos",	 size=256, required=True,help="Nombre sin acentos opcionalmente para optimizar busquedas"),
-		'displayname': fields.char(string="Nombre a mostrar",	 size=256, required=False,help="Nombre con acentos a mostrar"),
-		'nacionalidad_id': fields.many2one('cein.nacionalidad','Nacionalidad'),
-		'escolaridad_id': fields.many2one('cein.escolaridad','escolaridad'),
-		'estadocivil_id': fields.many2one('cein.estadocivil','estadocivil'),
-		'ocupacion_id': fields.many2one('cein.ocupacion','ocupacion'),
-		'profesion_id': fields.many2one('cein.profesion','profesion'),
-		'raza_id': fields.many2one('cein.raza','raza'),
-		'tipo_documento_id': fields.many2one('cein.tipo_documento','tipo_documento'),
 
-		'activo': fields.boolean("Activado"),
-		'descripcion': fields.text("Description", required=False, help="Descripcion"),
-	}
+	name= fields.Char(string="Nombres y apellidos",	 size=256, required=True,help="Nombre sin acentos opcionalmente para optimizar busquedas")
+	displayname=  fields.Char(string="Nombre a mostrar",	 size=256, required=False,help="Nombre con acentos a mostrar")
+	identidad= fields.Char(string="Identidad",	 size=15, required=False,help="Identificacion de la persona")	
+	nacionalidad_id=  fields.Many2one('cein.nacionalidad','Nacionalidad')
+	escolaridad_id=  fields.Many2one('cein.escolaridad','Escolaridad')
+	estadocivil_id=  fields.Many2one('cein.estadocivil','Estado civil')
+	ocupacion_id=  fields.Many2one('cein.ocupacion','Ocupacion')
+	profesion_id=  fields.Many2one('cein.profesion','Profesion')
+	raza_id=  fields.Many2one('cein.raza','Raza')
+	tipo_documento_id=  fields.Many2one('cein.tipo_documento','Tipo documento de identidad')
+
+	activo= fields.Boolean("Activado")
+	descripcion = fields.Text("Description", required=False, help="Descripcion")
+
 	_defaults = {
 		'activo': True,	
+		'nacionalidad_id': 1,
 	}
 
 	

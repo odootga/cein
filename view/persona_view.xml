@@ -7,20 +7,26 @@
 		<field name="model">cein.persona</field>
 		<field name="arch" type="xml">
 			<form string="persona Form">
-				<sheet>					
+				<sheet>	
+				<group colspan="4">					
 					<group col="2">						
-						<field name="name" placeholder="Nombre " />						
-						<field name="nacionalidad_id" placeholder="Nacionalidad" />											
-						<field name="escolaridad_id"  />											
-						<field name="estadocivil_id"  />											
+						<field name="name" placeholder="Nombre y apellido completos" />						
+						<field name="nacionalidad_id" />
+						<field name="escolaridad_id"  />																	
 						<field name="ocupacion_id"  />											
-						<field name="profesion_id"  />											
-						<field name="raza_id"  />											
-						<field name="tipo_documento_id"  />											
-
-						<field name="activo" />											
+						<field name="profesion_id"  />					
+						<field name="activo" />								
 					</group>
+					<group col="2">						
+						<field name="identidad" placeholder="Documento de Identidad" />						
+						<field name="tipo_documento_id"  widget="radio"/>																	
+						<field name="estadocivil_id"  widget="radio"/>							
+						<field name="raza_id"  widget="radio"/>	
+					</group>	
+				</group>
 					<notebook>
+					  <page string="Antecedentes">						
+					  </page>
 					  <page string="Descripcion">						
 						<field name="descripcion" placeholder="Descripcion opcional" />
 					  </page>
@@ -37,14 +43,10 @@
 		<field name="arch" type="xml">
 				<tree string="Status Tree">
 							<field name="name" />
-							<field name="nacionalidad_id" />											
-							<field name="descripcion" />
-							<field name="escolaridad_id"  />											
-							<field name="estadocivil_id"  />											
-							<field name="ocupacion_id"  />											
-							<field name="profesion_id"  />											
+							<field name="identidad" />																		
+							<field name="tipo_documento_id"  />
+							<field name="nacionalidad_id" />										
 							<field name="raza_id"  />											
-							<field name="tipo_documento_id"  />											
 				</tree>
 		</field>
 	</record>	

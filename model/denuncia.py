@@ -13,8 +13,9 @@ class Denuncia(models.Model):
 	def computed_get_hechos(self):
 		self.computed_resumen_hechos = ""
 		contador = 0
-
-		for hecho in self.relatoshechos_id:	
+		print "**"*30
+		print "Salida de field: "+ self._field
+		for hecho in self.relatoshechos_id:		
 			self.computed_resumen_hechos += "<strong>Hecho #"+str(contador+1)+": </strong>"+str(hecho.fechahora) + "\n"
 			self.computed_resumen_hechos +=  hecho.relato+"\n"
 			self.computed_resumen_hechos += "<br /><strong>Delitos implicados: </strong>"
@@ -32,22 +33,22 @@ class Denuncia(models.Model):
 
 	@api.one
 	def computed_get_codigo(self):
-		self.name = "CEIN-PROV-0101-"+str(datetime.now().year)+"-"+ str(self.id)
+		self.name = "CEIN-PROV-0101-"+str(datetime.now().year)+"-"+ str(self.id).rjust(5,'0')
 		return
 
 
 	name= fields.Char(string="Codigo Oficial", compute="computed_get_codigo", size=256,help="Nombre sin acentos opcionalmente para optimizar busquedas", required=True)
 	tipo_denuncia_id= fields.Many2one('cein.tipo_denuncia','Tipo de Denuncia', required=True)
 	fecha_denuncia= fields.Date('Fecha Toma de Denuncia', required=True, default=fields.date.today())
-	state= fields.Selection([('generada','Ingresada'),('oficial','En Proceso Legal'),('cerrada','Cerrada')], required=True, string="Estado", index=True, default='generada')
+	state= fields.Selection([('ingresada','Ingresada'),('ingresada_confirmada','Ingresada y Confirmada'),('oficial','En Proceso Legal'),('cancelada','Cancelada'),('cerrada','Cerrada')], required=True, string="Estado", index=True)
 	relacion_id= fields.One2many('cein.implicado','name_id','Implicados en la Denuncia', required=True)
-	relatoshechos_id= fields.One2many('cein.hechos','hechos_id','Relato de Hechos, Datos Geográficos, Fecha y Hora del Suceso', required=True)
-	activo= fields.Boolean("Activado", default=True)
+	relatoshechos_id= fields.One2many('cein.hechos','hechos_id','Relato de Hechos, Datos Geográficos, Fecha y Hora del Suceso', required=True)	
 	computed_resumen_hechos = fields.Html("Resumen de los hechos",compute="computed_get_hechos")
 	procedimiento_ids= fields.One2many('cein.procedimiento','denuncia_id','Procedimiento de la denuncia')
 
 	_defaults = {
 		'name': "Este campo será autogenerado",	
+		'state': "ingresada",
 	}
 
 	_defaults
@@ -67,8 +68,7 @@ class Hechos(models.Model):
 	_name = "cein.hechos"	
 	hechos_id= fields.Many2one('cein.denuncia','Many2one obligado',help="obligado por one2many, no necesario aparezca en vista")
 	relato= fields.Text('Relato de Hechos', required=False)
-	observaciones= fields.Text('Observaciones', required=False)
-	comentarios= fields.Text('Comentarios', required=False)
+	observaciones= fields.Text(string="Observaciones (para uso exclusido del agente de recepción de denuncia/Fiscal)", required=False)	
 	delitosimplicados_id= fields.One2many('cein.delitosimplicado','name_id','Delitos Implicados')
 	fechahora= fields.Datetime('Fecha del Hecho', required=False)
 	direccion= fields.Text("Dirección de Lugar de los Hechos", required=False, help="Descripcion del departamento")

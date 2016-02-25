@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <openerp>
-	<data>
-		<record model="ir.ui.view" id="denuncia_search">
-			<field name="name">denuncia.tree</field>
-			<field name="model">cein.denuncia</field>
-			<field name="arch" type="xml">
-				<search string="Busquedas">
-		<field name="tipo_denuncia_id"  filter_domain="[('tipo_denuncia_id','ilike', self)]" string="Busqueda por tipo de denuncia" /> 
-	<field name="state"  filter_domain="[('state','ilike', self)]" string="Busqueda por estado de denuncia" /> 
-
-							<separator/>
-							<filter  string="Busqueda por estado"  domain="[('state','=', 'generada')]"  />
-							<separator/>
-						<group expand="0" string="Agrupado por:" >
-							<filter  string="Busqueda por tipo de denuncia"  domain="[]" context="{'group_by':'tipo_denuncia_id' }" />
-							<filter  string="Busqueda por estado de denuncia"  domain="[]" context="{'group_by':'state' }" />
-						</group>
-				</search>
-
-		</field>
-		</record>
+	<data>	
 
 		
 
@@ -36,11 +17,11 @@
 					<group colspan="4">						
 						<group cols="2">						
 							<field name="name" placeholder="Codigo Temporal " />									
+							<field name="fecha_denuncia" placeholder="Fecha de Denuncia " />
 						</group>
 						<group cols="2">
-							<field name="tipo_denuncia_id" placeholder="Tipo de Denuncia " />
-							<field name="fecha_denuncia" placeholder="Fecha de Denuncia " />						
-							<field name="activo" />	
+							<field name="tipo_denuncia_id" placeholder="Tipo de Denuncia" widget="radio" />
+							
 						</group>					
 					</group>					
 
@@ -59,7 +40,7 @@
 								<field name="procedimiento_ids" nolabel="1" >
 									<tree string="XXX" >
 										<field name="denuncia_id" nolabel="1"/>									
-										<field name="name" nolabel="1"/>
+										<field name="tipo_procedimiento_id" nolabel="1"/>
 										<field name="implicado_id" nolabel="1" />	
 										<field name="state" nolabel="1" />
 									</tree>
@@ -73,6 +54,7 @@
 			</form>
 		</field>
 	</record>
+
 
 <!-- Vista de arbol para el objeto -->
 	<record model="ir.ui.view" id="denuncia_tree_view">
@@ -88,14 +70,34 @@
 				</tree>
 		</field>
 	</record>	
+
+	<record model="ir.ui.view" id="denuncia_search">
+			<field name="name">denuncia.tree</field>
+			<field name="model">cein.denuncia</field>
+			<field name="arch" type="xml">
+				<search string="Busquedas">
+					<field name="tipo_denuncia_id"  filter_domain="[('tipo_denuncia_id','ilike', self)]" string="Busqueda por tipo de denuncia" /> 
+				    <field name="state"  filter_domain="[('state','ilike', self)]" string="Busqueda por estado de denuncia" /> 
+
+							<separator/>
+							<filter  string="Busqueda por estado"  domain="[('state','=', 'generada')]"  />
+							<separator/>
+						<group expand="0" string="Agrupado por:" >
+							<filter  string="Busqueda por tipo de denuncia"  domain="[]" context="{'group_by':'tipo_denuncia_id' }" />
+							<filter  string="Busqueda por estado de denuncia"  domain="[]" context="{'group_by':'state' }" />
+						</group>
+				</search>
+
+		</field>
+		</record>
 	
 	<record model="ir.actions.act_window" id="denuncia_list_action">
-          <field name="name">denuncia</field>
+          <field name="name">Denuncia</field>
           <field name="res_model">cein.denuncia</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>
 		<field name="help" type="html">
-			<p class="oe_view_nocontent_create">Crea el primer elemento de este catálogo</p>
+			<p class="oe_view_nocontent_create">Crea el primer elemento de este catÃ¡logo</p>
 		</field>
         </record>
 
@@ -151,35 +153,33 @@
 		<field name="model">cein.hechos</field>
 		<field name="type">form</field>
 		<field name="arch" type="xml">
-			<form string="Relato de Hechos, Datos Geográficos, Fecha y Hora del Suceso">
+			<form string="Relato de Hechos, Datos GeogrÃ¡ficos, Fecha y Hora del Suceso">
 				<sheet>	
 					<group col="2">						
 						<field name="fechahora"/>            			         
 					</group>
 					<notebook>
-					  <page string="Datos Geográficos del Lugar de los Hechos">	
+					  <page string="Datos Geograficos del Lugar de los Hechos">	
 					  <group colspan="2" col="2">
             				<field name="municipio_id" placeholder="Municipio" />
-            				<field name="direccion" placeholder="Dirección detallada" />
+            				<field name="direccion" placeholder="Direccion detallada" />
           			  </group>		
 					  </page>
 					</notebook>										
 					 <group colspan="2" col="1">
             			<field name="relato" />
           			</group>	
-          			 <group colspan="2" col="1">
-            			<field name="observaciones" />
-          			</group>
-          			 <group colspan="2" col="1">
-            			<field name="comentarios" />
-          			</group>
+          			
           			<notebook>
 					  <page string="Delitos Inputados">	
 					  <group colspan="2" col="1">
             				<field name="delitosimplicados_id"/>
           			  </group>		
 					  </page>
-					</notebook>					
+					</notebook>	
+					<group colspan="2" col="1">
+            			<field name="observaciones" />
+          			</group>					
 				</sheet>
 			</form>
 		</field>

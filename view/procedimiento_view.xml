@@ -7,14 +7,28 @@
 		<field name="model">cein.procedimiento</field>
 		<field name="arch" type="xml">
 			<form string="procedimiento Form">
-				<sheet>					
-					<group col="2">						
-						<field name="name" placeholder="Procedimiento" />								
-						<field name="denuncia_id"/>				
-						<field name="implicado_id"/>	
-						<field name="state"/>	
-						<field name="solicitud" placeholder="Breve Descripción de Solicitud" />
+				<header>
+					<field name="state" widget="statusbar" nolabel="1"/>
+				</header>
+				<sheet>	
+					<group colspan="4" >			
+						<group col="2">						
+							<field name="tipo_procedimiento_id" placeholder="Tipo de Procedimiento" />								
+							<field name="denuncia_id"/>				
+							<field name="implicado_id"/>								
+						</group>
+						<group col="2">								
+							<field name="responsable_id"/>
+						</group>
 					</group>
+					<group col="2">								
+							<field name="solicitud" placeholder="Breve Descripción de Solicitud" />
+						</group>
+					<notebook>
+						<page string="Descripcion del Reporte">
+							<field name="reporte" placeholder="Breve Resumen de como se llevó a cabo la investigación"/>				
+						</page>						
+					</notebook>
 					<group colspan="4" >
 							<group cols="2">	
 								<field name="creador" />	
@@ -36,9 +50,9 @@
 		<field name="model">cein.procedimiento</field>
 		<field name="arch" type="xml">
 				<tree string="Status Tree">
-							<field name="name"/>								
-						<field name="state"  />				
-						<field name="denuncia_id"/>	
+					<field name="denuncia_id"/>
+					<field name="tipo_procedimiento_id"/>								
+					<field name="state"  />	
 				</tree>
 		</field>
 	</record>	

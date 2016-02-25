@@ -35,8 +35,7 @@
 				<sheet>					
 					<group colspan="4">						
 						<group cols="2">						
-							<field name="name" placeholder="Codigo Oficial " />		
-							<field name="code_temporal" placeholder="Codigo Temporal " />							
+							<field name="name" placeholder="Codigo Temporal " />									
 						</group>
 						<group cols="2">
 							<field name="tipo_denuncia_id" placeholder="Tipo de Denuncia " />
@@ -82,7 +81,6 @@
 		<field name="arch" type="xml">
 				<tree string="Status Tree">
 							<field name="name" />			
-							<field name="code_temporal" />	
 							<field name="tipo_denuncia_id" />	
 							<field name="fecha_denuncia" />
 							<field name="state" />

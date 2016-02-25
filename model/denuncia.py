@@ -14,7 +14,7 @@ class Denuncia(models.Model):
 		self.computed_resumen_hechos = ""
 		contador = 0
 		print "**"*30
-		print "Salida de field: "+ self._field
+		#print "Salida de field: "+ self._field
 		for hecho in self.relatoshechos_id:		
 			self.computed_resumen_hechos += "<strong>Hecho #"+str(contador+1)+": </strong>"+str(hecho.fechahora) + "\n"
 			self.computed_resumen_hechos +=  hecho.relato+"\n"

@@ -31,7 +31,7 @@ class Tipo_Denuncia(osv.Model):
 	_columns = {
 		'name': fields.char(string="Nombre",	 size=256, required=True,help="Nombre"),
 		'codlegado': fields.char('Codigo',size=20, required=True, help="Codigo legado"),
-		'activo': fields.boolean("Activado"),
+		'active': fields.boolean("Activado"),
 		'descripcion': fields.text("Description", required=False, help="Descripcion del departamento"),
 		'creador': fields.function(_get_metadata_dic,type="char",string="Creado por", store=False),
 		'creacion_date': fields.function(_get_metadata_dic,type="date",string="Fecha creacion", store=False),

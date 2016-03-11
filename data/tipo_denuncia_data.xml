@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<openerp>
+    <data noupdate="1">		
+		<record model="cein.tipo_denuncia"  id="1"> <field name="name">Verbal</field><field name="codlegado">1</field><field name="active">1</field></record>
+		<record model="cein.tipo_denuncia"  id="2"> <field name="name">Escrita</field><field name="codlegado">2</field><field name="active">1</field></record>
+		<record model="cein.tipo_denuncia"  id="3"> <field name="name">de Oficio</field><field name="codlegado">3</field><field name="active">1</field></record>
+	</data>
+</openerp>

@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 {
 	'name' : 'Centro Integrado de Desarrollo Institucional-CEIN',
-	'depends' : ['base'],
+	'depends' : ['base','mail'],
 	'category': 'Project Management Module',
 	'description' :'''Desarrollo Exclusivo''',
 	'author': 'Marco Rios, Allan Maradiaga',
@@ -29,6 +29,7 @@
 ######################### SECUENCIAS #########################
 		'data/denuncia_sequence.xml',
 ####################### DATA DEMO #########################
+		'data/tipo_denuncia_data.xml',
 		'data/departamento_data.xml',
 		'data/municipio_data.xml',
 		'data/escolaridad_data.xml',

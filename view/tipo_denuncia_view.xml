@@ -11,7 +11,7 @@
 					<group col="2">						
 						<field name="name" placeholder="Nombre del tipo de denuncia" />								
 						<field name="codlegado" placeholder="Codigo legado del tipo_denuncia" />											
-						<field name="activo" />											
+						<field name="active" />											
 					</group>
 					<group colspan="4" >
 							<group cols="2">	

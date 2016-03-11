@@ -10,6 +10,10 @@
 				<sheet>					
 					<group col="2">						
 						<field name="name" placeholder="Nombre " />		
+						<field name="capitulo" placeholder="capitulo " />		
+						<field name="modalidad" placeholder="modalidad " />		
+						<field name="modalidad_articulo" placeholder="modalidad_articulo " />		
+						<field name="caracteristica_articulo" placeholder="caracteristica_articulo " />		
 						<field name="activo" />											
 					</group>
 					<notebook>

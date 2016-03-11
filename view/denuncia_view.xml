@@ -46,10 +46,28 @@
 									</tree>
 								</field>
 						</page>
+						<page string="Archivos Adjuntos">
+						</page>
 						</notebook>	
 					<group colspan="2">						
 						<field name="computed_resumen_hechos" />	
 					</group>
+
+					<group colspan="4" >
+							<group cols="2">	
+								<field name="creador" />	
+								<field name="creacion_date" />							
+							</group>
+							<group cols="2">	
+								<field name="modificador" />	
+								<field name="modificacion_date" />
+							</group>
+					</group>
+					<field name='notify_email' widget="radio" class="oe_edit_only"/>
+					<div class="oe_chatter">
+	                        <field name="message_follower_ids" widget="mail_followers"/>
+	                        <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+	                    </div>	
 				</sheet>
 			</form>
 		</field>
@@ -70,6 +88,18 @@
 				</tree>
 		</field>
 	</record>	
+	     <!-- Creo la vista Graph -->   
+	<record model="ir.ui.view" id="denuncia_graph_view">
+ 		<field name="name">cein_denuncia.graph</field>
+		<field name="model">cein.denuncia</field>
+		<field name="arch" type="xml">
+		<graph string="Regiones" type="bar">
+			<field name="name" />
+			<field name="state" operator="+"/>		
+			
+		</graph>
+	 	</field>
+	</record>
 
 	<record model="ir.ui.view" id="denuncia_search">
 			<field name="name">denuncia.tree</field>
@@ -95,7 +125,7 @@
           <field name="name">Denuncia</field>
           <field name="res_model">cein.denuncia</field>
           <field name="view_type">form</field>
-          <field name="view_mode">tree,form</field>
+          <field name="view_mode">tree,form,graph</field>
 		<field name="help" type="html">
 			<p class="oe_view_nocontent_create">Crea el primer elemento de este catálogo</p>
 		</field>
